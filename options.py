@@ -1,9 +1,12 @@
+import torch
 import argparse
 
 class Options:
 	def __init__(self):
 		parser = argparse.ArgumentParser()
 		
+		parser.add_argument("--device", type=str,
+			default = 'cuda:0' if torch.cuda.is_available else 'cpu')
 		parser.add_argument("--data_path", type=str,
 			default = './data')
 		parser.add_argument("--batch", type=int,
